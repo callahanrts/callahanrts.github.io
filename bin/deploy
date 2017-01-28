@@ -14,7 +14,7 @@ then
 fi
 git checkout -b master
 
-if [ `git branch | grep master`]
+if [ `git branch | grep master` ]
 then
   # Build site.
   bower install
