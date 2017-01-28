@@ -30,9 +30,12 @@ then
   git commit --allow-empty -m "$(git log -1 --pretty=%B) [ci skip]"
   git push -f -q origin master
 
-# Move back to previous branch.
-git checkout dev
-bower install
+  # Move back to previous branch.
+  git checkout dev
+  bower install
+else
+  echo "Couldn't checkout branch 'master'"
+fi
 
 echo "Deployed Successfully!"
 
