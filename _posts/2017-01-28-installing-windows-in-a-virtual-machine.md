@@ -2,7 +2,7 @@
 layout: post
 title: "Installing Windows 10 in a Virtual Machine"
 description: "Steps to install Windows 10 as a virtual machine using VirtualBox."
-tags: [web, jekyll]
+tags: []
 ---
 
 How to install windows 10 in a virtual machine.
