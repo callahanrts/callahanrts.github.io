@@ -14,28 +14,23 @@ then
 fi
 git checkout -b master
 
-if [ `git branch | grep master` ]
-then
-  # Build site.
-  bower install
-  bundle exec jekyll build
+# Build site.
+bower install
+bundle exec jekyll build
 
-  # Delete and move files.
-  find . -maxdepth 1 ! -name '_site' ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
-  mv _site/* .
-  rm -R _site/
+# Delete and move files.
+find . -maxdepth 1 ! -name '_site' ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
+mv _site/* .
+rm -R _site/
 
-  # Push to master.
-  git add -fA
-  git commit --allow-empty -m "$(git log -1 --pretty=%B) [ci skip]"
-  git push -f -q origin master
+# Push to master.
+git add -fA
+git commit --allow-empty -m "$(git log -1 --pretty=%B) [ci skip]"
+git push -f -q origin master
 
-  # Move back to previous branch.
-  git checkout dev
-  bower install
-else
-  echo "Couldn't checkout branch 'master'"
-fi
+# Move back to previous branch.
+git checkout dev
+bower install
 
 echo "Deployed Successfully!"
 
