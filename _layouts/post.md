@@ -19,7 +19,7 @@ layout: default
           </p>
 
 					<a href="http://github.com/{{ page.github }}" target="_blank" class="source">
-						<span>{% octicon mark-github %}</span>
+						<span class="fa fa-github fa-lg"></span>
 						<span>{{ page.github }}</span>
 					</a>
         </header>
