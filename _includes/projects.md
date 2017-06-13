@@ -21,7 +21,7 @@
 
               <div class="card-action">
                 <!--a href="http://github.com/{{ post.github }}" target="_blank">
-                  {% octicon mark-github height: 27 %}
+                <span class="fa fa-github fa-lg"></span>
                 </a-->
 
                 {% for category in post.categories %}
