@@ -42,9 +42,8 @@ $on-laptop:        800px !default;
 
 // Import partials.
 @import
-  "materialize/materialize",
   "styles/base",
   "styles/layout",
-  "styles/syntax-highlighting"
+  "styles/projects"
 ;
 

@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="container">
     <div class="row">
         <div class="col-6">
@@ -9,7 +8,7 @@ layout: default
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
                 <header class="post-header">
-                <h2 class="post-title" itemprop="name headline">{{ page.title | escape }}</h2>
+                <h2 class="post-title" itemprop="name headline">{{ page.name | escape }}</h2>
                 <p class="post-meta">
                     <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                     {% assign date_format = site.minima.date_format | default: "%b %Y" %}
@@ -34,7 +33,8 @@ layout: default
                 {% include disqus_comments.html %}
                 {% endif %}
             </article>
-            
+
+
         </div>
     </div>
 </div>

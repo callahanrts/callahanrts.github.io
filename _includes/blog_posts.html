@@ -1,9 +1,3 @@
----
-layout: default
-permalink: /projects/index.html
-title: Projects
-page: projects
----
 
 <div class="container">
 
@@ -11,12 +5,8 @@ page: projects
         <div class="col-6">
             <ul class="post-list">
 
-                {% assign projects = site.projects | sort:"date" | reverse %}
-
-                {% for project in projects %}
-                    {% if project.featured %}
-                        {% include project_preview.md project=project %}
-                    {% endif %}
+                {% for post in site.posts %}
+                    {% include post_preview.md post=post %}
                 {% endfor %}
 
             </ul>
@@ -29,7 +19,7 @@ page: projects
 
         </div>
     </div>
-
+    
     <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
 
 </div>

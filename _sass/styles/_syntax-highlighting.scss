@@ -1,6 +1,17 @@
 /**
  * Syntax highlighting styles
  */
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+
+$spacing-unit:     30px !default;
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
 .highlight {
   background: #fff;
   @extend %vertical-rhythm;

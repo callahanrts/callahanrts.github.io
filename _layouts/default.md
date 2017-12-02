@@ -5,20 +5,14 @@
 
   <body>
 
-    <div class="parallax-container">
-      <div class="parallax"><img src="/assets/tahoe.jpg"></div>
-      {% include header.html %}
-    </div>
+    {% include header.html %}
 
     {{ content }}
 
     {% include footer.html %}
 
+    {% include async_styles.html %}
   </body>
-
-  <script>
-  $('.parallax').parallax();
-  </script>
 
 </html>
 
