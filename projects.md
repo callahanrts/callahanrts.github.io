@@ -8,7 +8,7 @@ page: projects
 <div class="container">
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-8 col-lg-6">
             <ul class="post-list">
 
                 {% assign projects = site.projects | sort:"date" | reverse %}

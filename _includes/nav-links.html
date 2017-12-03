@@ -1,0 +1,16 @@
+
+<nav class="nav-links">
+    <ul>
+        {% for nav in site.navigation %}
+            {% assign navPage = nav | downcase %}
+            {% assign pagePage = page.page | downcase %}
+            <li class="{% if navPage == pagePage %}active{% endif %}">
+                <a href="/{{ nav | downcase }}">
+                    <h4 class="font-weight-light">
+                        {{ nav }}
+                    </h4>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

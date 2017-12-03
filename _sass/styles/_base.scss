@@ -159,7 +159,7 @@ pre {
   }
 }
 
-nav {
+header nav {
     position: fixed;
     top: 50px;
     right: 100px;
@@ -173,11 +173,18 @@ header {
     h1 {
         margin: 50px 0 0 0;
     }
+    margin-bottom: 50px;
+}
+
+.nav-links {
+    ul { text-align: right; }
     .active h4{
         display: inline-block;
         box-shadow: 0 2px $brand-color;
     }
-    margin-bottom: 50px;
+}
+
+.small-nav {
 }
 
 
