@@ -5,14 +5,14 @@
 
 
 <div class="fixed-top d-sm-none">
-    <nav class="navbar navbar-light">
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-light bg-white">
+        <button class="navbar-toggler ml-auto bg-white" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
 
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="pr-4">
+    <div class="collapse bg-white" id="navbarToggleExternalContent">
+        <div class="pr-4 pb-4">
             {% include nav-links.html %}
         </div>
     </div>
