@@ -66,7 +66,6 @@ figcaption {
  * Lists
  */
 
-ul { list-style: none; }
 ul, ol {
   margin-left: $spacing-unit;
 }
@@ -87,31 +86,29 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
+h1, h2, h3, h4, h5, h6, footer {
+    a {
+        color: #333;
+
+        &:hover {
+            color: $brand-color;
+            text-decoration: none;
+        }
+    }
+}
+
 
 
 /**
  * Links
  */
 a {
-  color: #333;
-
-  // &:visited {
-  //   color: darken($brand-color, 15%);
-  // }
+  color: $brand-color;
 
   &:hover {
     color: $brand-color;
-    text-decoration: none;
+    text-decoration: underline;
   }
-
-
-  // .social-media-list &:hover {
-  //   text-decoration: none;
-
-  //   .username {
-  //     text-decoration: underline;
-  //   }
-  // }
 }
 
 
@@ -160,7 +157,7 @@ pre {
 }
 
 header nav {
-    position: fixed;
+    position: absolute;
     top: 50px;
     right: 100px;
 }
@@ -169,6 +166,7 @@ header nav {
  * Header
  */
 
+.nav-links ul{ list-style: none; }
 header {
     h1 {
         margin: 50px 0 0 0;
@@ -204,6 +202,17 @@ button.navbar-toggler {
 .project .date {
     color: #999;
     font-size: 13px;
+}
+
+article {
+    padding-bottom: 50px;
+}
+
+/**
+ * Comments
+ */
+#disqus_thread {
+    padding: 50px 0;
 }
 
 

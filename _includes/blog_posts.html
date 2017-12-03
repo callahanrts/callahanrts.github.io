@@ -1,25 +1,17 @@
 
-<div class="container">
+<ul class="post-list">
 
-    <div class="row">
-        <div class="col-6">
-            <ul class="post-list">
+    {% for post in site.posts %}
+        {% include post_preview.md post=post %}
+    {% endfor %}
 
-                {% for post in site.posts %}
-                    {% include post_preview.md post=post %}
-                {% endfor %}
+</ul>
 
-            </ul>
-
-            <div class="show_more">
-                <a href="/projects/all">
-                    Show All
-                </a>
-            </div>
-
+<!-- <div class="show_more">
+        <a href="/projects/all">
+        Show All
+        </a>
         </div>
-    </div>
-    
-    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+-->
 
-</div>
+<!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->

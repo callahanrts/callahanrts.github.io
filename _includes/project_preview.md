@@ -1,10 +1,10 @@
 
 <li class='project'>
-    <a href="{{ project.url | relative_url }}">
-        <h3 class='font-weight-normal'>
+    <h3 class='font-weight-normal'>
+        <a href="{{ project.url | relative_url }}">
             {{ project.name | escape }}
-        </h3>
-    </a>
+        </a>
+    </h3>
 
     <p class="date">
         {% assign date_format = site.minima.date_format | default: "%b %Y" %}

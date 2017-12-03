@@ -17,7 +17,10 @@ $spacing-unit:     30px !default;
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #eef;
+    background: #f6f6f6;
+    border-radius: 0;
+    width: 768px;
+    max-width: 90vw;
   }
 
   .c     { color: #998; font-style: italic } // Comment

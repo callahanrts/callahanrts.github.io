@@ -22,7 +22,13 @@
 
     {% include header.html %}
 
-    {{ content }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-7">
+                {{ content }}
+            </div>
+        </div>
+    </div>
 
     {% include footer.html %}
 

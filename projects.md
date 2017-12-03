@@ -5,31 +5,23 @@ title: Projects
 page: projects
 ---
 
-<div class="container">
+<ul class="post-list">
 
-    <div class="row">
-        <div class="col-md-8 col-lg-6">
-            <ul class="post-list">
+    {% assign projects = site.projects | sort:"date" | reverse %}
 
-                {% assign projects = site.projects | sort:"date" | reverse %}
+    {% for project in projects %}
+        {% if project.featured %}
+            {% include project_preview.md project=project %}
+        {% endif %}
+    {% endfor %}
 
-                {% for project in projects %}
-                    {% if project.featured %}
-                        {% include project_preview.md project=project %}
-                    {% endif %}
-                {% endfor %}
+</ul>
 
-            </ul>
-
-            <div class="show_more">
-                <a href="/projects/all">
-                    Show All
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
-
+<div class="show_more">
+    <a href="/projects/all">
+        Show All
+    </a>
 </div>
+
+<!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+

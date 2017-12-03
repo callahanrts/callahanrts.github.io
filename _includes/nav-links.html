@@ -3,13 +3,12 @@
     <ul>
         {% for nav in site.navigation %}
             {% assign navPage = nav | downcase %}
-            {% assign pagePage = page.page | downcase %}
-            <li class="{% if navPage == pagePage %}active{% endif %}">
-                <a href="/{{ nav | downcase }}">
-                    <h4 class="font-weight-light">
+            <li class="{% if page.url contains navPage %}active{% endif %}">
+                <h4 class="font-weight-light">
+                    <a href="/{{ nav | downcase }}">
                         {{ nav }}
-                    </h4>
-                </a>
+                    </a>
+                </h4>
             </li>
         {% endfor %}
     </ul>

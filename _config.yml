@@ -37,7 +37,7 @@ navigation:
 
 #twitter_username: jekyllrb
 github_username:  callahanrts
-#permalink: /:collection/:name
+permalink: /blog/:title
 google_analytics: UA-26799060-1
 
 # Collections
@@ -64,3 +64,6 @@ plugins_dir:
 
 sass:
   style: compressed
+
+disqus:
+  shortname: callahanrts
