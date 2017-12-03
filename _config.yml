@@ -72,3 +72,6 @@ sass:
 
 disqus:
   shortname: callahanrts
+
+minima:
+    date_format: "%b %d, %Y"

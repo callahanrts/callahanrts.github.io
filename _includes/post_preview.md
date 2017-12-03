@@ -7,9 +7,8 @@
     </h3>
 
     <p class="date">
-        {% assign date_format = site.minima.date_format | default: "%b %d, %Y" %}
         <span>
-            {{ post.date | date: date_format }}
+            {{ post.date | date: site.minima.date_format }}
         </span>
     </p>
 

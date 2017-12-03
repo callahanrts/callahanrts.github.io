@@ -8,8 +8,7 @@ layout: default
     <h2 class="post-title" itemprop="name headline">{{ page.title | escape }}</h2>
     <p class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {% assign date_format = site.minima.date_format | default: "%b %Y" %}
-        {{ page.date | date: date_format }}
+        {{ page.date | date: site.minima.date_format }}
         </time>
         {% if page.author %}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
