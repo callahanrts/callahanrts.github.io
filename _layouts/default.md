@@ -12,7 +12,7 @@
     </nav>
 
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="p-4">
+        <div class="pr-4">
             {% include nav-links.html %}
         </div>
     </div>
