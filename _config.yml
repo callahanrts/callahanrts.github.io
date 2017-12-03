@@ -58,6 +58,7 @@ theme: minima
 gems:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 exclude:
   - node_modules - Gemfile
