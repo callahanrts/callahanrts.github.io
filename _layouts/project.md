@@ -1,36 +1,29 @@
 ---
 layout: default
 ---
-<div class="container">
-    <div class="row">
-        <div class="col-6">
 
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-                <header class="post-header">
-                <h2 class="post-title" itemprop="name headline">{{ page.name | escape }}</h2>
-                <p class="post-meta">
-                    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                    {% assign date_format = site.minima.date_format | default: "%b %Y" %}
-                    {{ page.date | date: date_format }}
-                    </time>
-                    {% if page.author %}
-                    • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-                    {% endif %}
-                </p>
+    <header class="post-header">
+    <h2 class="post-title" itemprop="name headline">{{ page.name | escape }}</h2>
+    <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima.date_format | default: "%b %Y" %}
+        {{ page.date | date: date_format }}
+        </time>
+        {% if page.author %}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+        {% endif %}
+    </p>
 
-                            <a href="http://github.com/{{ page.github }}" target="_blank" class="source">
-                                <span class="fa fa-github fa-lg"></span>
-                                <span>{{ page.github }}</span>
-                            </a>
-                </header>
+                <a href="http://github.com/{{ page.github }}" target="_blank" class="source">
+                    <span class="fa fa-github fa-lg"></span>
+                    <span>{{ page.github }}</span>
+                </a>
+    </header>
 
-                <div class="post-content" itemprop="articleBody">
-                {{ content }}
-                </div>
-
-            </article>
-
-        </div>
+    <div class="post-content" itemprop="articleBody">
+    {{ content }}
     </div>
-</div>
+
+</article>

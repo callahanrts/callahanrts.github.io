@@ -18,6 +18,11 @@ email: callahanrts@gmail.com
 image: "/assets/profile2.jpg"
 profile_image: "/assets/profile2.jpg"
 author: Cody
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/profile2.jpg
 
 description: > # this means to ignore newlines until "baseurl:"
   Cody Callahan - Software Developer
