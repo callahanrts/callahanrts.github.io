@@ -184,7 +184,13 @@ header {
     }
 }
 
-.small-nav {
+button.navbar-toggler {
+    outline: none;
+}
+
+.collapse, .collapsing {
+    -webkit-transition: none;
+    transition-delay: 0;
 }
 
 
