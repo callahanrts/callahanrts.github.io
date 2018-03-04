@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Editing Installing Arch Linux on a Macbook Pro Retina"
+title: "Installing Arch Linux on a Macbook Pro Retina"
 date: 2016-03-26
 categories: linux configs
 ---
