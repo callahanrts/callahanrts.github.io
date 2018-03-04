@@ -6,6 +6,7 @@ date: 2016-03-26
 categories: linux configs
 ---
 
+Notes on getting various applications to work nicely with HiDPI monitors.
 
 ## Spotify
 Spotify can be too small. To fix it, spotify needs to be started with `--force-device-scale-factor=1.8`.

@@ -6,6 +6,8 @@ date: 2016-08-14
 categories: linux configs
 ---
 
+Notes on installing various Archlinux packages. This way I won't forget what I
+did if something breaks and I have to reinstall something.
 
 # Configuration
 If ethernet is not working, do `ip a` to see listed network devices. Mine shows `ens9` as my
