@@ -2,18 +2,29 @@
 layout: post
 comments: true
 title: "Deploying Electron app with Github Actions for macOS"
-date: 2020-05-30
-categories:
+date: 2020-06-07
+categories: electron,github actions
 comments: false
 ---
 
 Figuring out how to build and deploy an electron app is a bit daunting at
 first. Fortunately, the process turns out to be fairly simple once you
-understand the process and have a few good resources on hand.
+understand the process and have a few good resources on hand. This post is
+meant to serve as a guide to my future self, as well as anyone else out there
+who needs a resource on how to set up an automated build process for an
+electron app.
 
 The first issue you most likely want to resolve is the unknown developer
 privacy alert from apple. In order to do this, you will need to sign your
 app.
+
+# Table of Contents
+1. [Code Signing](#code-signing)
+1. [Notarizing](#notarizing)
+1. [Auto Updates with AWS S3](#auto-updates-with-aws-s3)
+1. [Github Action](#github-action)
+1. [Troubleshooting](#troubleshooting)
+1. [References](#references)
 
 # [Code Signing](#code-signing)
 
@@ -166,12 +177,49 @@ includes the `NOTARIZE` env variable. It should look something like this:
 NOTARIZE=true NODE_ENV=production electron-builder
 ```
 
+# [Auto Updates with AWS S3](#auto-updates-with-aws-s3)
+
+electron-builder can manage a few different strategies of auto updating your
+application. In order to enable this within your Github action, you must first
+give your action access to AWS. The [AWS Cli
+Action](https://github.com/marketplace/actions/aws-cli-install-action) makes
+this really simple.
+
+All you need to do is run this `uses` block as your first step. This will give
+all of your other steps access to the `aws` cli.
+
+<center>
+<img src="/assets/posts/electron-deploy/aws-access-key-secret.png">
+</center>
+
+<center>
+<img src="/assets/posts/electron-deploy/aws-secret-key-secret.png">
+</center>
+
+```yaml
+steps:
+  # This gives your action access to the `aws` cli. Every action that
+  # follows will be able  to use it
+  - uses: chrislennon/action-aws-cli@v1.1
+
+  ... Other steps
+```
+
+Next, you'll need to add the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+secrets to your repository.
+
+To completely set up auto updates in your app, I recommend reading through [this
+guide](https://blog.brainio.com/development/automatic-updates-in-electron-using-amazon-s3/).
+
+
 # [Github Action](#github-action)
+
+Now that github has access to all the accounts necessary, we can implement the
+Github Action to carry out the deployment process.
 
 ```yaml
 name: Build/release
 
-# on: push
 on:
   push:
     branches:
@@ -183,6 +231,7 @@ jobs:
 
     strategy:
       matrix:
+        # TODO: Add linux and windows to the process
         os: [macos-latest] #, ubuntu-latest, windows-latest]
 
     steps:
@@ -227,13 +276,91 @@ jobs:
         run: yarn build && yarn deploy
 ```
 
+For reference, these are the corresponding scripts from `package.json`. This
+Github Action currently has room for some improvement. The build process is
+technically run during `build` and `deploy`. Ideally, `electron-builder` should
+only be run once. I ran into an issue where I had some missing files in my
+`dist` directory so I lazily ran the build command before deploying.
+Eventually, I'll update these notes with a better solution.
+
+```json
+  "scripts": {
+    "build": "cross-env NODE_ENV=production node .electron-vue/build.js && electron-builder",
+    "deploy": "cross-env NOTARIZE=true NODE_ENV=production electron-builder --publish always",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
+  },
+```
+
+The Github Action above is set to run every time you push to the master branch.
+My repository structure is loosely based on [git
+flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html). As such, I
+find it easiest to add features to the develop branch. When I'm ready to
+release a new major/minor/patch, I run the following script:
+
+```bash
+#!/bin/bash
+
+currentVersion() {
+  # Version key/value should be on his own line
+  PACKAGE_VERSION=$(cat package.json \
+    | grep version \
+    | head -1 \
+    | awk -F: '{ print $2 }' \
+    | sed 's/[",]//g')
+
+  echo $PACKAGE_VERSION
+}
+
+# Only allow releases to come from the develop branch
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "develop" ]; then
+  echo "Deploys can only be made from the develop branch"
+  exit 0
+fi
+
+# Increment the app version in package.json
+if [ "$1" == "patch" ]; then
+  yarn version --patch
+elif [ "$1" == "minor" ]; then
+  yarn version --minor
+elif [ "$1" == "major" ]; then
+  yarn version --major
+else
+  echo "Version missing (major, minor, patch)"
+  exit 0
+fi
+
+# Create a release branch and push to it.
+version=$(currentVersion)
+branch="release-$(currentVersion)"
+git checkout $branch || git checkout -b $branch
+git push github $branch
+
+# Return to the develop branch
+git checkout develop
+git push github develop
+
+# List notes for what's next to finish deploying the application
+echo ""
+echo ""
+echo "Released $version"
+echo "To deploy:"
+echo "  1. Merge develop into master"
+echo "  2. Push to master. $version will be deployed"
+echo ""
+```
+
 # [Troubleshooting](#troubleshooting)
 
-# [Summary](#summary)
+### The deployment process completes but the app is a blank white screen
+This probably means that the notarization process is failing. I spent too much
+time with difficult to trace errors just to realize I had some invalid
+credentials.
+
 
 ### [References](#references)
 
-- [electron-builder](https://www.electron.build/code-signing).
-- [electron-notarize](https://github.com/electron/electron-notarize#prerequisites)
+- [AWS CLI Action](https://github.com/marketplace/actions/aws-cli-install-action)
 - [Automatic updates in electron using s3](https://blog.brainio.com/development/automatic-updates-in-electron-using-amazon-s3/)
 - [Notarize electron apps](https://medium.com/@TwitterArchiveEraser/notarize-electron-apps-7a5f988406db)
+- [electron-builder](https://www.electron.build/code-signing).
+- [electron-notarize](https://github.com/electron/electron-notarize#prerequisites)
