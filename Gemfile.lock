@@ -83,7 +83,7 @@ DEPENDENCIES
   jekyll-octicons
   jekyll-seo-tag
   jekyll-sitemap
-  minima (~> 2.0)
+  minima
   tzinfo-data
 
 RUBY VERSION
