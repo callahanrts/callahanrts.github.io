@@ -15,9 +15,9 @@ thunderbolt ethernet. To start ethernet run `dhcpcd ens9`. Test if it worked by 
 
 sources:
   - https://bbs.archlinux.org/viewtopic.php?id=156427
-  - http://www.cyberciti.biz/faq/linux-list-network-cards-command/
+  - https://www.cyberciti.biz/faq/linux-list-network-cards-command/
 
-[Install the `yaourt` package manager](http://revryl.com/2013/07/11/yaourt-installation-arch-linux/)
+[Install the `yaourt` package manager](https://revryl.com/2013/07/11/yaourt-installation-arch-linux/)
 
 # OS Components
 
@@ -53,7 +53,7 @@ sudo depmod -a
 
 ### Fonts
 
-http://www.techrapid.co.uk/linux/arch-linux/improve-font-rendering-on-arch-linux/
+https://www.techrapid.co.uk/linux/arch-linux/improve-font-rendering-on-arch-linux/
 
 ```
 yaourt ttf-mac-fonts
@@ -230,7 +230,7 @@ Get ifconfig if it doesn't exist already:
 sudo pacman -S net-tools
 ```
 
-http://superuser.com/questions/572077/redirect-some-ip-to-localhost
+https://superuser.com/questions/572077/redirect-some-ip-to-localhost
 ```
 # Add this to your startup script:
 sudo ifconfig lo:1 inet 192.168.99.100 netmask 255.255.255.255 up

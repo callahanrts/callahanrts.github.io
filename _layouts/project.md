@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
 
     <header class="post-header">
     <h2 class="post-title" itemprop="name headline">{{ page.name | escape }}</h2>
@@ -11,11 +11,11 @@ layout: default
         {{ page.date | date: site.minima.date_format }}
         </time>
         {% if page.author %}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+        • <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
         {% endif %}
     </p>
 
-                <a href="http://github.com/{{ page.github }}" target="_blank" class="source">
+                <a href="https://github.com/{{ page.github }}" target="_blank" class="source">
                     <span class="fa fa-github fa-lg"></span>
                     <span>{{ page.github }}</span>
                 </a>

@@ -8,15 +8,15 @@ categories:
 
 Recently, I was embedding an iframe in a wordpress site and needed to pass down
 some URL parameters into the iframe. The url the iframe needed was something
-like `http://embedded-site.com?h=hello&w=world`. The parameters had to come from
-my original page of `http://my-site.com?h=hello&w=world` because I needed to
-share `http://my-site.com` and have something specific show up in the
-`http://embedded-site.com` iframe.
+like `https://embedded-site.com?h=hello&w=world`. The parameters had to come from
+my original page of `https://my-site.com?h=hello&w=world` because I needed to
+share `https://my-site.com` and have something specific show up in the
+`https://embedded-site.com` iframe.
 
 The embed code for passing parameters from my parent page down to the iframe was
 pretty simple:
 ```html
-<iframe id="embed" data-href="http://my-site.com"></iframe>
+<iframe id="embed" data-href="https://my-site.com"></iframe>
 <script type="text/javascript">
 window.onload = function() {
     // Get a reference to the iframe
@@ -43,7 +43,7 @@ So to fix the scenario where wordpress won't accept my `w` URL parameter that
 needs to be passed to my iframe. I remapped the code to rename the variable.
 
 ```html
-<iframe id="embed" data-href="http://my-site.com"></iframe>
+<iframe id="embed" data-href="https://my-site.com"></iframe>
 <script type="text/javascript">
 window.onload = function() {
     // Get a reference to the iframe

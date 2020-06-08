@@ -33,7 +33,7 @@ wifi-menu
 ## Applications
 ### VMWare Workstation
 __Post Install__
-http://askubuntu.com/questions/689123/vmware-wont-work-after-ubuntu-upgrade
+https://askubuntu.com/questions/689123/vmware-wont-work-after-ubuntu-upgrade
 
 The solution below applies to versions of VMWare prior to 12.1.0. The 12.1.0 version of VMWare does not require this fix.
 

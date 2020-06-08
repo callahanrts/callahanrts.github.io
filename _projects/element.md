@@ -16,7 +16,7 @@ electron. It can be configured in yaml to display some system status information
 
 I spent some time setting up an Archlinux desktop with i3wm just for the fun of it. Since i3wm
 doesn't have a very nice status bar by default, I created my own. Element is easily configured
-with yaml. You can create status bar widgets in coffeescript and style them with [less](http://lesscss.org/).
+with yaml. You can create status bar widgets in coffeescript and style them with [less](https://lesscss.org/).
 
 <div class="screenshots">
   <img src="/assets/projects/element.jpg" />

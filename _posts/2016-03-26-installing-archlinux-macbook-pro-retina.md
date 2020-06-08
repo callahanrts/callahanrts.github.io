@@ -204,7 +204,7 @@ __Reenable SIP__
 Same Steps as disabling but enter `csrutil enable`.
 
 Your Arch Linux partition might be labeled `EFI Boot`. [There seems
-to be a way to change this](http://apple.stackexchange.com/questions/188149/new-efi-boot-drive-appearing-after-reverting-os-x-drive-to-hfs),
+to be a way to change this](https://apple.stackexchange.com/questions/188149/new-efi-boot-drive-appearing-after-reverting-os-x-drive-to-hfs),
 but I haven't been able to get it to work.
 
 You also might want to select which disk is the default startup disk. I think during this installation,
